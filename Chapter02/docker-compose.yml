@@ -1,0 +1,18 @@
+    version: '2'
+    services:
+        web:
+          build:
+            context: .
+            dockerfile: tomcat.df
+          ports:
+            - "8080:8080"
+          volumes:
+            - .:/mnt/
+          links:
+            - db
+       db:
+          image: mysql:5.7
+          ports:
+            - "3326:3306"
+          environment:
+            - MYSQL_ROOT_PASSWORD=r00t

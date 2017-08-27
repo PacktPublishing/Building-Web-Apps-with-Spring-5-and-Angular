@@ -1,0 +1,58 @@
+@ExtendWith(SpringExtension.class)
+@Tag("Controller")
+public class UserAccountControllerTest {
+
+ private MockMvc mockMvc;
+ @MockBean
+ private UserService userService;
+ 
+ @BeforeEach
+ public void setUp(TestInfo testInfo) throws Exception {
+ this.mockMvc = MockMvcBuilders.standaloneSetup(new 
+   UserAccountController(this.userService)).build();
+ }
+ 
+ @Test
+ @DisplayName("Should return error message for when user not existing 
+   in the database tries to login.")
+ public void Should_ReturnErrorMessage_ForUnmatchingUser() throws   
+ Exception {
+ 
+ User user = new User();
+ user.setEmail("foo@bar.com");
+ user.setPassword("foobar");
+ //
+ // Create JSON Representation for User object;
+ // Gson is a Java serialization/deserialization library to 
+ // convert Java Objects into JSON and back
+ //
+ Gson gson = new Gson();
+ String jsonUser = gson.toJson(user);
+ //
+ // Pre-program the behavior of Mock; When isValidUser method
+ // is invoked, return null object
+ //
+ Mockito.when(this.userService.isValidUser("foo@bar.com", 
+ "foobar")).thenReturn(null);
+ //
+ // Invoking the controller method
+ //
+ MvcResult result = this.mockMvc.perform(
+ post("/account/login/process")
+ .contentType(MediaType.APPLICATION_JSON)
+ .content(jsonUser))
+ .andExpect(status().isOk())
+ .andReturn();
+ //
+ // Verify the program behavior; Assert the response object
+ //
+ MockHttpServletResponse response = result.getResponse();
+ ObjectMapper mapper = new ObjectMapper();
+ ExecutionStatus responseObj = 
+ mapper.readValue(response.getContentAsString(),  
+ ExecutionStatus.class);
+ assertTrue(responseObj.getCode().equals("USER_LOGIN_UNSUCCESSFUL"));
+ assertTrue(responseObj.getMessage().equals("Username or password is 
+ incorrect. Please try again!")); 
+ }
+}
