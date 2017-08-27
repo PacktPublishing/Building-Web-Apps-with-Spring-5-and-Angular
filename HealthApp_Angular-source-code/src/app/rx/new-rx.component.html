@@ -1,0 +1,67 @@
+<div class="{{alertStyle}}" role="alert" *ngIf="rxStatus.code != ''">{{rxStatus.message}}</div>
+<div>
+  <h2>New Prescription</h2>
+  <hr/>
+  <form class="form-horizontal" (ngSubmit)="onSubmit()"  #rxForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="user_id" class="col-sm-2 control-label">Patient Id</label>
+      <div class="col-sm-6">
+        <input type="email"
+               class="form-control"
+               id="user_id"
+               placeholder="Patient's Registered Email Address"
+               required
+               [(ngModel)]="rx.patientId"
+               name="patientId"
+               #patientId="ngModel"
+        >
+        <div [hidden]="patientId.valid || patientId.pristine"
+             class="alert alert-danger">
+          Email address is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="symptoms" class="col-sm-2 control-label">Symptoms</label>
+      <div class="col-sm-6">
+        <textarea
+               class="form-control"
+               id="symptoms"
+               placeholder="Symptoms"
+               required
+               [(ngModel)]="rx.symptoms"
+               name="symptoms"
+               #symptoms="ngModel"
+        ></textarea>
+        <div [hidden]="symptoms.valid || symptoms.pristine"
+             class="alert alert-danger">
+          Symptoms is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="medicine" class="col-sm-2 control-label">Medicines</label>
+      <div class="col-sm-6">
+        <textarea
+               class="form-control"
+               id="medicine"
+               placeholder="Medicines"
+               required
+               [(ngModel)]="rx.medicine"
+               name="medicine"
+               #medicine="ngModel"
+        ></textarea>
+        <div [hidden]="medicine.valid || medicine.pristine"
+             class="alert alert-danger">
+          Medicine is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success"  [disabled]="!rxForm.form.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+

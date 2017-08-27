@@ -1,0 +1,14 @@
+<div>
+  <h1>Prescriptions</h1>
+  <hr/>
+  <div class="panel panel-info"  *ngFor="let rx of rxlist">
+    <div class="panel-body">
+      <ul class="list-group">
+        <div class="panel-heading"><strong>{{rx.patientName}}</strong></div>
+        <li class="list-group-item"><strong>Symptoms</strong>: {{rx.symptoms}}</li>
+        <li class="list-group-item"><strong>Medicines</strong>: {{rx.medicine}}</li>
+      </ul>
+    </div>
+  </div>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+</div>
