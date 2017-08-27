@@ -1,0 +1,34 @@
+<div>
+<div>
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <li class="active">Doctors</li>
+  </ol>
+</div>
+  <ul class="nav nav-tabs  nav-justified">
+    <li role="presentation" class="active"><a routerLink="/doctor" routerLinkActive="active">All</a></li>
+    <li role="presentation" (click)="onSelect('PHYSICIAN')"><a>Physician</a></li>
+    <li role="presentation" (click)="onSelect('PEDIATRICIAN')"><a>Pediatrician</a></li>
+    <li role="presentation" (click)="onSelect('CARDIOPHYSICIAN')"><a>Cardio-Physician</a></li>
+  </ul>
+<h1>Doctors</h1>
+<hr/>
+<div class="panel panel-info"  *ngFor="let doctor of doctors">
+  <div class="panel-heading"><strong>{{doctor.firstname}} {{doctor.lastname}}</strong></div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Email</strong>: {{doctor.email}}</li>
+      <li class="list-group-item"><strong>Speciality</strong>: {{doctor.specialityCode}}</li>
+    </ul>
+    <div>
+      <button type="button" class="btn btn-info btn-sm">
+        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+      </button>
+      <button type="button" class="btn btn-success btn-sm">
+        <span class="glyphicon glyphicon-share" aria-hidden="true"></span>
+      </button>
+    </div>
+  </div>
+</div>
+<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
+</div>
