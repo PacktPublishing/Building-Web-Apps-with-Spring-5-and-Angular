@@ -1,0 +1,53 @@
+<div class="{{alertStyle}}" role="alert" *ngIf="loginStatus.code != ''">{{loginStatus.message}}</div>
+<div style="width: 60%;margin-top: 50px"  *ngIf="loginStatus.code === '' || loginStatus.code ==='FAILURE'">
+  <h2>Users Login</h2>
+  <hr/>
+  <form class="form-horizontal" (ngSubmit)="onLogin()"  #loginForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-6">
+        <input type="email"
+               class="form-control"
+               id="email"
+               placeholder="Email"
+               required
+               [(ngModel)]="model.email"
+               name="email"
+               #email="ngModel"
+        >
+        <div [hidden]="email.valid || email.pristine"
+             class="alert alert-danger">
+          Email address is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="col-sm-2 control-label">Password</label>
+      <div class="col-sm-6">
+        <input type="password"
+               class="form-control"
+               id="password"
+               placeholder="Password"
+               required
+               [(ngModel)]="model.password"
+               name="password"
+               #password="ngModel"
+        >
+        <div [hidden]="password.valid || password.pristine"
+             class="alert alert-danger">
+          Password is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success"  [disabled]="!loginForm.form.valid">Submit</button>
+      </div>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10" style="padding-top: 20px">
+      <span style="padding-right: 5px"><a routerLink="/auth/register" routerLinkActive="active">New User? Sign up</a></span>|
+      <span style="padding-left: 5px"><a href="/auth/forgotpassword" routerLinkActive="active">Forgot Password?</a></span>
+    </div>
+  </form>
+</div>
+

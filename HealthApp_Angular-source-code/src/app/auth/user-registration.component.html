@@ -1,0 +1,72 @@
+<div class="{{alertStyle}}" role="alert" *ngIf="signupStatus.code != ''">{{signupStatus.message}}</div>
+<div style="" *ngIf="signupStatus.code === '' || signupStatus.code ==='USER_ACCOUNT_EXISTS'">
+  <h2>New User Registration</h2>
+  <hr/>
+  <form class="form-horizontal" (ngSubmit)="onSubmit()"  #loginForm="ngForm" novalidate>
+    <div class="form-group">
+      <label for="email" class="col-sm-2 control-label">Email</label>
+      <div class="col-sm-6">
+        <input type="email"
+               class="form-control"
+               id="email"
+               placeholder="Email"
+               required
+               [(ngModel)]="model.email"
+               name="email"
+               #email="ngModel"
+        >
+        <div [hidden]="email.valid || email.pristine"
+             class="alert alert-danger">
+          Email address is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password" class="col-sm-2 control-label">Password</label>
+      <div class="col-sm-6">
+        <input type="password"
+               class="form-control"
+               id="password"
+               placeholder="Password"
+               required
+               [(ngModel)]="model.password"
+               name="password"
+               #password="ngModel"
+        >
+        <div [hidden]="password.valid || password.pristine"
+             class="alert alert-danger">
+          Password is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="firstname" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-6">
+        <input type="text"
+               class="form-control"
+               id="firstname"
+               placeholder="First Name"
+               required
+               [(ngModel)]="model.firstname"
+               name="firstname"
+               #firstname="ngModel"
+        >
+        <div [hidden]="firstname.valid || firstname.pristine"
+             class="alert alert-danger">
+          First name is required
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+          <input type="checkbox" [checked]="isDoctor" (change)="isDoctor = !isDoctor" /> <strong>I am a Doctor</strong>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-success"  [disabled]="!loginForm.form.valid">Submit</button>
+      </div>
+    </div>
+  </form>
+</div>
+
