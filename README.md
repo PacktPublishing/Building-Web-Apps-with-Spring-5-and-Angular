@@ -1,7 +1,3 @@
-## [Get this title for $10 on Packt's Spring Sale](https://www.packt.com/B06271?utm_source=github&utm_medium=packt-github-repo&utm_campaign=spring_10_dollar_2022)
------
-For a limited period, all eBooks and Videos are only $10. All the practical content you need \- by developers, for developers
-
 # Building Web Apps with Spring 5 and Angular
 This is the code repository for [Building Web Apps with Spring 5 and Angular](https://www.packtpub.com/application-development/building-web-apps-spring-5-and-angular?utm_source=github&utm_medium=repository&utm_campaign=9781787284661), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the book from start to finish.
 ## About the Book
