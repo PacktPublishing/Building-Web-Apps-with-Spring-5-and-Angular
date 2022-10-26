@@ -25,3 +25,7 @@ To execute the codes in this book and run the application, you will need to have
 * [Learning Web Application with Spring 5 and Angular 2 [Video]](https://www.packtpub.com/application-development/learning-web-application-spring-5-and-angular-2-video?utm_source=github&utm_medium=repository&utm_campaign=9781788392884)
 * [Building Web Apps with jQuery, JavaScript and Bootstrap [Video]](https://www.packtpub.com/web-development/building-web-apps-jquery-javascript-and-bootstrap-video?utm_source=github&utm_medium=repository&utm_campaign=9781786465979)
 * [Web Development with Bootstrap 4 and Angular 2 - Second Edition](https://www.packtpub.com/web-development/web-development-bootstrap-4-and-angular-2-second-edition?utm_source=github&utm_medium=repository&utm_campaign=9781785880810)
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781787284661">https://packt.link/free-ebook/9781787284661 </a> </p>
